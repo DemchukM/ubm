@@ -1,6 +1,5 @@
 odoo.define('kw_pos_barcode_parser.BarcodeParser', function (require) {
 "use strict";
-console.log('hello');
 const BarcodeParser = require('barcodes.BarcodeParser');
 
 BarcodeParser.include({
@@ -13,7 +12,6 @@ BarcodeParser.include({
             const weight = parseFloat(oldCode.slice(7,12));
             const newCode = `${code}${product_id}00000`;
             res.base_code = newCode;
-            console.log(oldCode,code,product_id,weight);
 
             if (weight > 0) {
                 res.value = weight / 1000;
